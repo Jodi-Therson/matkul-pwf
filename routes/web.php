@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {
     return view('halo', ['name' => 'Cok Ace']);
@@ -20,3 +22,7 @@ Route::get('/halaman', function () {
 Route::get('/beranda', function () {
     return view('beranda');
 });
+
+Route::get('/students', [StudentController::class, 'index']);
+
+Route::resource('photos', PhotoController::class);
